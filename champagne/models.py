@@ -5,7 +5,7 @@ Customer = get_user_model()
 
 
 class Champagne(models.Model):
-    brand = models.CharField(verbose_name='Brand', db_index=True, max_length=25)
+    brand = models.CharField(verbose_name='Brand', db_index=True, unique=True, max_length=25)
     color = models.CharField(verbose_name='Color', max_length=25)
     size = models.CharField(verbose_name='Size', max_length=25)
     CHAMP_TYPES = {
