@@ -4,6 +4,7 @@ from champagne.views import *
 app_name = 'champagne'
 
 urlpatterns = [
-    path('champagne/create', ChampagneCreateView.as_view()),
     path('all/', ChampagneListView.as_view()),
+    path('champagne/create', ChampagneCreateView.as_view()),
+    path('champagne/detail/<int:pk>', ChampagneDetailView.as_view()),
 ]
