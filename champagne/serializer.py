@@ -9,6 +9,8 @@ class ChampagneListSerializer(serializers.ModelSerializer):
 
 
 class ChampagneDetailSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Champagne
         fields = '__all__'
