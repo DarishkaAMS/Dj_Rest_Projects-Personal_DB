@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics
-from champagne.serializer import ChampagneDetailSerializer, ChampagneListSerializer
 from champagne.models import Champagne
+from champagne.permisions import IsOwnerOrReadOnly
+from champagne.serializer import ChampagneDetailSerializer, ChampagneListSerializer
 
 
 class ChampagneListView(generics.ListAPIView):
@@ -16,6 +17,6 @@ class ChampagneCreateView(generics.CreateAPIView):
 class ChampagneDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ChampagneDetailSerializer
     queryset = Champagne.objects.all()
-    permission_classes = ...
+    permission_classes = (IsOwnerOrReadOnly, )
 
 
