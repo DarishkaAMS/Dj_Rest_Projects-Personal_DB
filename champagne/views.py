@@ -16,5 +16,6 @@ class ChampagneCreateView(generics.CreateAPIView):
 class ChampagneDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ChampagneDetailSerializer
     queryset = Champagne.objects.all()
+    permission_classes = ...
 
 
